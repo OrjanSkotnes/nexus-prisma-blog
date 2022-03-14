@@ -1,15 +1,15 @@
 import { extendType, objectType } from 'nexus'
-import { Post } from 'nexus-prisma'
+//import { Post } from 'nexus-prisma'
 import { PostQuery } from './queries'
 import { PostMutation } from './mutations'
 
 export const PostModel = objectType({
-  name: Post.$name,
+  name: 'Post',
   definition(t) {
-    t.field(Post.id)
-    t.field(Post.title)
-    t.field(Post.body)
-    t.field(Post.published)
+    t.int('id')
+    t.string('title')
+    t.string('body')
+    t.boolean('published')
   },
 })
 

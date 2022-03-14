@@ -8,6 +8,8 @@
     "outDir": "dist",
     "sourceMap": true,
     "esModuleInterop": true,
-    "typeRoots": ["./src/generated"]
-  }
+    "typeRoots": ["./src/generated"],
+    "types": ["node"]
+  },
+  "include": ["src/**/*", "types"]
 }
