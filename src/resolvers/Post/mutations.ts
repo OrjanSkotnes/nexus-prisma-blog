@@ -8,11 +8,13 @@ export const PostMutation = extendType({
       args: {
         title: nonNull(stringArg()),
         body: nonNull(stringArg()),
+        authorId: nonNull(intArg()),
       },
-      async resolve(_root, { title, body }, ctx) {
+      async resolve(_root, { title, body, authorId }, ctx) {
         const draft = {
           title,
           body,
+          authorId,
           published: false,
         }
         return await ctx.db.post.create({ data: draft })

@@ -30,12 +30,17 @@ export interface NexusGenScalars {
 export interface NexusGenObjects {
   Mutation: {};
   Post: { // root type
+    authorId: number; // Int!
     body: string; // String!
     id: number; // Int!
     published: boolean; // Boolean!
     title: string; // String!
   }
   Query: {};
+  User: { // root type
+    id: number; // Int!
+    name: string; // String!
+  }
 }
 
 export interface NexusGenInterfaces {
@@ -51,9 +56,12 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 export interface NexusGenFieldTypes {
   Mutation: { // field return type
     createDraft: NexusGenRootTypes['Post'] | null; // Post
+    createUser: NexusGenRootTypes['User'] | null; // User
     publish: NexusGenRootTypes['Post'] | null; // Post
   }
   Post: { // field return type
+    author: NexusGenRootTypes['User']; // User!
+    authorId: number; // Int!
     body: string; // String!
     id: number; // Int!
     published: boolean; // Boolean!
@@ -63,14 +71,22 @@ export interface NexusGenFieldTypes {
     drafts: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
     posts: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
   }
+  User: { // field return type
+    id: number; // Int!
+    name: string; // String!
+    posts: NexusGenRootTypes['Post'][]; // [Post!]!
+  }
 }
 
 export interface NexusGenFieldTypeNames {
   Mutation: { // field return type name
     createDraft: 'Post'
+    createUser: 'User'
     publish: 'Post'
   }
   Post: { // field return type name
+    author: 'User'
+    authorId: 'Int'
     body: 'String'
     id: 'Int'
     published: 'Boolean'
@@ -80,13 +96,22 @@ export interface NexusGenFieldTypeNames {
     drafts: 'Post'
     posts: 'Post'
   }
+  User: { // field return type name
+    id: 'Int'
+    name: 'String'
+    posts: 'Post'
+  }
 }
 
 export interface NexusGenArgTypes {
   Mutation: {
     createDraft: { // args
+      authorId: number; // Int!
       body: string; // String!
       title: string; // String!
+    }
+    createUser: { // args
+      name: string; // String!
     }
     publish: { // args
       draftId: number; // Int!
