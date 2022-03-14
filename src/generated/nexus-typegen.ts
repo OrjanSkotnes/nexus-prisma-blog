@@ -30,10 +30,10 @@ export interface NexusGenScalars {
 export interface NexusGenObjects {
   Mutation: {};
   Post: { // root type
-    body?: string | null; // String
-    id?: number | null; // Int
-    published?: boolean | null; // Boolean
-    title?: string | null; // String
+    body: string; // String!
+    id: number; // Int!
+    published: boolean; // Boolean!
+    title: string; // String!
   }
   Query: {};
 }
@@ -54,10 +54,10 @@ export interface NexusGenFieldTypes {
     publish: NexusGenRootTypes['Post'] | null; // Post
   }
   Post: { // field return type
-    body: string | null; // String
-    id: number | null; // Int
-    published: boolean | null; // Boolean
-    title: string | null; // String
+    body: string; // String!
+    id: number; // Int!
+    published: boolean; // Boolean!
+    title: string; // String!
   }
   Query: { // field return type
     drafts: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
