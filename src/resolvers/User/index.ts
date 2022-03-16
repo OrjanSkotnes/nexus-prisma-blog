@@ -10,3 +10,6 @@ export const UserModel = objectType({
     t.field(User.posts)
   },
 })
+
+export * as UserQueries from './queries'
+export * as UserMutations from './mutations'

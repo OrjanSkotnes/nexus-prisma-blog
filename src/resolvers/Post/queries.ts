@@ -1,4 +1,4 @@
-import { extendType, objectType } from 'nexus'
+import { extendType } from 'nexus'
 
 export const PostQuery = extendType({
   type: 'Query',

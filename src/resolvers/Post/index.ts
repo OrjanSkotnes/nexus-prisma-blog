@@ -1,10 +1,5 @@
 import { extendType, objectType } from 'nexus'
 import { Post } from 'nexus-prisma'
-import { PostQuery } from './queries'
-import { PostMutation } from './mutations'
-import { UserModel } from '../User'
-import { userQuery } from '../User/queries'
-import { UserMutation } from '../User/mutations'
 
 export const PostModel = objectType({
   name: Post.$name,
@@ -18,11 +13,5 @@ export const PostModel = objectType({
   },
 })
 
-export const resolvers = {
-  userQuery,
-  UserMutation,
-  UserModel,
-  PostModel,
-  PostMutation,
-  PostQuery,
-}
+export * as PostQueries from './queries'
+export * as PostMutation from './mutations'
