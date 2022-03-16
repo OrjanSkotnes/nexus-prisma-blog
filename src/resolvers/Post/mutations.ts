@@ -37,5 +37,21 @@ export const PostMutation = extendType({
         })
       },
     })
+    t.field('unpublish', {
+      type: 'Post',
+      args: {
+        draftId: nonNull(intArg()),
+      },
+      async resolve(_root, args, ctx) {
+        return await ctx.db.post.update({
+          where: {
+            id: args.draftId,
+          },
+          data: {
+            published: false,
+          },
+        })
+      },
+    })
   },
 })

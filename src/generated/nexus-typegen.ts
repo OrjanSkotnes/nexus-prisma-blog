@@ -57,7 +57,10 @@ export interface NexusGenFieldTypes {
   Mutation: { // field return type
     createDraft: NexusGenRootTypes['Post'] | null; // Post
     createUser: NexusGenRootTypes['User'] | null; // User
+    deleteUser: NexusGenRootTypes['User'] | null; // User
     publish: NexusGenRootTypes['Post'] | null; // Post
+    unpublish: NexusGenRootTypes['Post'] | null; // Post
+    updateUser: NexusGenRootTypes['User'] | null; // User
   }
   Post: { // field return type
     author: NexusGenRootTypes['User']; // User!
@@ -83,7 +86,10 @@ export interface NexusGenFieldTypeNames {
   Mutation: { // field return type name
     createDraft: 'Post'
     createUser: 'User'
+    deleteUser: 'User'
     publish: 'Post'
+    unpublish: 'Post'
+    updateUser: 'User'
   }
   Post: { // field return type name
     author: 'User'
@@ -115,8 +121,18 @@ export interface NexusGenArgTypes {
     createUser: { // args
       name: string; // String!
     }
+    deleteUser: { // args
+      id: number; // Int!
+    }
     publish: { // args
       draftId: number; // Int!
+    }
+    unpublish: { // args
+      draftId: number; // Int!
+    }
+    updateUser: { // args
+      id: number; // Int!
+      name: string; // String!
     }
   }
   Query: {

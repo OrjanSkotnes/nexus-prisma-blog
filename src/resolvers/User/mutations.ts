@@ -12,5 +12,27 @@ export const UserMutation = extendType({
         return await ctx.db.user.create({ data: { name } })
       },
     })
+    t.field('updateUser', {
+      type: 'User',
+      args: {
+        id: nonNull(intArg()),
+        name: nonNull(stringArg()),
+      },
+      async resolve(_root, { id, name }, ctx) {
+        return await ctx.db.user.update({
+          where: { id },
+          data: { name },
+        })
+      },
+    })
+    t.field('deleteUser', {
+      type: 'User',
+      args: {
+        id: nonNull(intArg()),
+      },
+      async resolve(_root, { id }, ctx) {
+        return await ctx.db.user.delete({ where: { id } })
+      },
+    })
   },
 })
