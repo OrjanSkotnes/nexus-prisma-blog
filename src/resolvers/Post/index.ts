@@ -3,6 +3,7 @@ import { Post } from 'nexus-prisma'
 import { PostQuery } from './queries'
 import { PostMutation } from './mutations'
 import { UserModel } from '../User'
+import { userQuery } from '../User/queries'
 import { UserMutation } from '../User/mutations'
 
 export const PostModel = objectType({
@@ -18,6 +19,7 @@ export const PostModel = objectType({
 })
 
 export const resolvers = {
+  userQuery,
   UserMutation,
   UserModel,
   PostModel,

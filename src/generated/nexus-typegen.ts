@@ -70,6 +70,7 @@ export interface NexusGenFieldTypes {
   Query: { // field return type
     drafts: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
     posts: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
+    user: NexusGenRootTypes['User'] | null; // User
   }
   User: { // field return type
     id: number; // Int!
@@ -95,6 +96,7 @@ export interface NexusGenFieldTypeNames {
   Query: { // field return type name
     drafts: 'Post'
     posts: 'Post'
+    user: 'User'
   }
   User: { // field return type name
     id: 'Int'
@@ -115,6 +117,11 @@ export interface NexusGenArgTypes {
     }
     publish: { // args
       draftId: number; // Int!
+    }
+  }
+  Query: {
+    user: { // args
+      id: number; // Int!
     }
   }
 }

@@ -20,6 +20,7 @@ type Post {
 type Query {
   drafts: [Post]
   posts: [Post]
+  user(id: Int!): User
 }
 
 type User {
