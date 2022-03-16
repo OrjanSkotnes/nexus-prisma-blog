@@ -5,9 +5,11 @@
 type Mutation {
   createDraft(authorId: Int!, body: String!, title: String!): Post
   createUser(name: String!): User
+  deletePost(id: Int!): Post
   deleteUser(id: Int!): User
   publish(draftId: Int!): Post
   unpublish(draftId: Int!): Post
+  updateDraft(body: String!, id: Int!, title: String!): Post
   updateUser(id: Int!, name: String!): User
 }
 

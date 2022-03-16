@@ -53,5 +53,28 @@ export const PostMutation = extendType({
         })
       },
     })
+    t.field('updateDraft', {
+      type: 'Post',
+      args: {
+        id: nonNull(intArg()),
+        title: nonNull(stringArg()),
+        body: nonNull(stringArg()),
+      },
+      async resolve(_root, { id, title, body }, ctx) {
+        return await ctx.db.post.update({
+          where: { id },
+          data: { title, body },
+        })
+      },
+    }),
+      t.field('deletePost', {
+        type: 'Post',
+        args: {
+          id: nonNull(intArg()),
+        },
+        async resolve(_root, { id }, ctx) {
+          return await ctx.db.post.delete({ where: { id } })
+        },
+      })
   },
 })
